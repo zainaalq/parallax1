@@ -161,15 +161,25 @@ header{
     
 
 }
+#uusEfekti {
+    position: fixed;
+    top: 0;          
+    left: 0;
+    height: 6px;
+    width: 0%;
+    background: linear-gradient(90deg, #0ff, #09f);
+    z-index: 9999;   
+    transition: width 0.1s linear;
 
 
-
+}
 
        
     </style>
 </head>
 <body>
     <header><h1>sivun otsikko</h1></header>
+    <div id ="uusEfekti"></div>
     <div id="parallax">
         <div class="layer layer1"   data-speed="30" > </div>
         <div class="layer layer2"  data-speed="60" > </div>
@@ -247,6 +257,17 @@ header{
         document.body.appendChild(dot);
         
     }
+
+
+////uus efekti scrolliin//////
+/
+window.addEventListener("scroll", () => {
+    let scrollTop = window.scrollY;
+    let height = document.body.scrollHeight - window.innerHeight;
+    let progress = (scrollTop / height) * 100;
+    document.getElementById("uusEfekti").style.width = progress + "%";
+});
+
 
     ////////////////////////////////////////
 
